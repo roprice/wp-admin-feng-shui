@@ -1,0 +1,38 @@
+<?php
+/**
+ * Plugin Name: Admin Editor Feng Shui
+ * Plugin URI: https://github.com/roprice/wp-admin-feng-shui
+ * Description: This plugin improves the admin text editor experience by setting the edit window to reasonable defaults
+ * Version: 1.0.0
+ * Author: Message Maps LLC
+ * Author URI: https://messagemaps.io
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+
+// If this file is called directly, abort.
+if (!defined('WPINC')) {
+    die;
+}
+
+function custom_admin_css() {
+    ?>
+    <style>
+        /* Default styles for 2-column layout */
+        #poststuff {
+            width: 1063px;
+        }
+        #poststuff * {
+            max-width: 1063px;
+        }
+
+        /* Styles for 1-column layout */
+		div#post-body.columns-1, 
+		div#post-body.columns-1 * {
+		    max-width: 763px;
+		}
+    </style>
+    <?php
+}
+add_action('admin_head', 'custom_admin_css');
+
